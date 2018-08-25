@@ -142,11 +142,34 @@ gambler : function(stake,goal,trails)
         console.log("avg of the game is"+(wins+loss)/2);
         console.log("Percentage of of the wins is"+(wins/trails)*100);
         console.log("Percentage of of the loss is"+(loss/trails)*100);
+    },
+
+    distance : function(x,y)
+    {
+        var len;
+        len=Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+        console.log("Eucledian Distance from the origin is "+len);
+    },
+
+    quadratic : function(a,b,c)
+    {
+       var root1;
+       var root2;
+       var  delta=(b*b)-(4*a*c);
+        if (delta>0)
+        {
+             root1= (-b+Math.sqrt(delta))/(2*a);
+             root2 = (-b-Math.sqrt(delta))/(2*a);
+             console.log("Root1 value  is "+root1);
+             console.log("Root2 value  is "+root2);
+
+        }
+        else
+        {
+           console.log("The given values doesnt form the equation");
+        }
     
-
-
-}
-
+    }
 }
 
 
