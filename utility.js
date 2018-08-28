@@ -1,6 +1,9 @@
 const _=require("lodash")
 const prompt = require('prompt');
 module.exports={
+
+/*flipcoin*/  
+
 coinflip: function(n)
 {
 var head=0,tail=0;
@@ -24,6 +27,8 @@ console.log("percentage of tail is "+peroftail+"%");
 console.log("percentage of headvstail is "+perofheadvstail+"%");
 },
 
+/*DISPLAY NAME WITH MESSAGE*/
+
 displayname : function(name)
 {
 if(Object.keys(name).length >=3){
@@ -34,6 +39,8 @@ if(Object.keys(name).length >=3){
      console.log("invalid username");
  }
 },
+
+/*LEAP YEAR*/
 
 leapyear : function(year)
 {
@@ -55,6 +62,8 @@ leapyear : function(year)
       }
 
     },
+
+    /* DISPLAY LEAP YEAR WITH POWER VALUES*/
 
 power : function(N)
 {
@@ -81,6 +90,8 @@ power : function(N)
 
 },
 
+/* HARMONIC NUMBER*/
+
 harmonic: function(num)
 {
     var sum=0;
@@ -99,6 +110,8 @@ harmonic: function(num)
 
 },
 
+/*PRIMEFACTORIZARION*/
+
 factprime : function(value)
 {
   for(var f=2;f*f<value;f++)
@@ -114,6 +127,8 @@ factprime : function(value)
       }
   }
 },
+
+/*GAMBLER*/
 
 gambler : function(stake,goal,trails)
 {
@@ -146,12 +161,16 @@ gambler : function(stake,goal,trails)
         console.log("Percentage of of the loss is"+(loss/trails)*100);
     },
 
+    /*DISTANCE*/
+
     distance : function(x,y)
     {
         var len;
         len=Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
         console.log("Eucledian Distance from the origin is "+len);
     },
+
+    /*QUADRATIC*/
 
     quadratic : function(a,b,c)
     {
@@ -172,6 +191,7 @@ gambler : function(stake,goal,trails)
         }
     
     },
+/* WINCHILL*/
 
 windchill : function(t,v)
 {
@@ -188,6 +208,8 @@ windchill : function(t,v)
  }
 },
 
+/*COUPON*/
+
 coupon : function(start,end)
 {
     var random= [],i,n;
@@ -203,38 +225,133 @@ coupon : function(start,end)
     console.log("no of unique coupons"+[...unique].length);
 },
 
-addzero : function(nval)
-{ 
-    var arr1=[];
-    for(var i=0;i<nval;i++)
-    {
-    arr1.push(prompt("Enter numbers: "));
-    }
-    var count=0;
-    for(var j=0;j<n-2;j++)
-    {
-        for(var k=i+1;k<n-1;k++)
-        {
-            for(var l=j+1;l<n;l++)
-            {
-                if(arr1[j]+arr1[k]+arr1[l]==0)
-                {
-                  console.log("the distinct triplets are "+arr1[j]+","+arr1[k]+","+arr1[l]);
-                  count= count+1;
-                  console.log("no of counts "+count);
-                }
-                else
-                {
-                    console.log("no triplets are found");
-                }
+/*DISPLAYING TRIPLETS*/
 
+addzero : function(read,n)
+{
+    this.n=n;
+    var arr1=[];
+    var count=0;
+    function input(n)
+    {
+       if(arr1.length >= n)
+       {
+         for(var j=0;j<n-2;j++)
+          {  
+           for(var k=j+1;k<n-1;k++)
+           {
+                for(var l=k+1;l<n;l++)
+                {
+                      if(Number(arr1[j])+Number(arr1[k])+Number(arr1[l]) == 0)
+                      {
+                         console.log("the distinct triplets are : ["+arr1[j]+","+arr1[k]+","+arr1[l]+"]");
+                        count= count+1;
+                      }
+                }
+           }
+          }
+           console.log("count of triplets: "+count);
+           read.close();
+        }
+        else
+        {
+        read.question(`please enter array element${(arr1.length+1 )} : ` , function(value)
+         {
+             arr1.push([value]);
+             input(n);
+         });
+        }  
+    }
+        input(n);
+    
+},
+
+/*STOPWATCH*/
+
+/*stopwatch : function(starttime,stoptime)
+{
+    if(starttime==1)
+    {
+       var  start=utility.getcurrenttime();
+    }
+    else if(stoptime==0)
+    {
+     var   stop=utility.getcurrenttime();
+    }
+    else
+    {
+        console.log("invalid input");
+    }
+    var res=utility.elapsedtime(start,stop);
+    console.log("elapsed time="+res+"seconds");
+},*/
+getcurrenttime : function()
+{
+    var date=new Date();
+    var n=date.getTime();
+    return n;
+},
+elapsedtime : function(start,stop)
+{
+ elapsed =(stop-start);
+ return elapsed;
+},
+
+/*2D ARRAY*/
+
+array2d : function(read,row,coloumn)
+{
+    var  size =row*coloumn;
+    var arr1=[];
+    function input(size)
+    {
+        if(arr1.length >= size)
+        {
+            var k=0;
+            arr2=[];
+            var string=' ';
+            for(var i=0;i<row;i++)
+            {
+                for(var j=0;j<coloumn;j++)
+                {
+                    string=string+arr1[k]+' ';
+                    k++;
+                }
+                arr2.push(string);
+                string=' ';
+            }
+            for(let index=0;index<arr2.length;index++)
+            {
+                console.log(arr2[index]);
             }
         }
+        else
+        {
+        read.question(`please enter array element${(arr1.length+1 )} : ` , function(value)
+         {
+             arr1.push(value);
+             input(n);
+         });
+        }            
+        
     }
+input(size);
+},
+
+/*permutation*/
+permutation : function(word)
+{
+  var value=word;
+  string=word.split('');
+  /*console.log(string);*/
+  var string1=[];
+  for(var i=0;i<string.length;i++)
+  {
+      string1.push(string[i]);
+  }
+  console.log(string1);
 }
 }
-
-
 
 
 
