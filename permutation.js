@@ -1,4 +1,3 @@
-
 var readline=require('readline');
 var utility=require('../utilities/utility.js')
 var read=readline.createInterface({
@@ -6,10 +5,10 @@ var read=readline.createInterface({
     output:process.stdout
 });
 
-function arr()
+function words()
 {
-    read.question("Enter the size of array",function(n){
-        utility.addzero(read,n);
+    read.question("Enter the string : ",function(stringvalue){
+        utility.permutation(stringvalue);
     });
 }
-arr();
+words();
