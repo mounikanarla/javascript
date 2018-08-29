@@ -8,7 +8,9 @@ var read=readline.createInterface({
 function words()
 {
     read.question("Enter the string : ",function(stringvalue){
-        utility.permutation(stringvalue);
+     var strArray=stringvalue.split('');
+     utility.permutation(strArray,0,strArray.length-1);
+     read.close();
     });
 }
 words();

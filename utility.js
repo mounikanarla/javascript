@@ -1,61 +1,129 @@
 const _=require("lodash")
-const prompt = require('prompt');
 module.exports={
 
-/*flipcoin*/  
+/*
+ * @purpose : By using random function flip the coin no of times from user input
+ *            and print the percentage of head vs tails
+ */
 
-coinflip: function(n)
+/*
+ * @description : Declaring a function and passing the userinput for fliping the coin
+ *                no of times
+ * @function: coinflip takes the no of times to flip coin and print the percentage of
+ *            head and tail
+ */
+
+coinflip: function(fliptimes)
 {
+/*
+ * @description : Declaring the variables to store the random values of heads and tails.
+ */
 var head=0,tail=0;
-for(var i=1;i<=n;i++)
-{
+/*
+ * @description : initializing for loop to repeat according to no of times 
+ *                to flip from user and comparing with one variable from one to 
+ *                to no of times given.
+ */
+for(var i=1;i<=fliptimes;i++)
+{   
+    /*
+     * @description : Declaring a random function to generate a random values from 0 to 1 and storing 
+     *                in a variable random
+     */
     var random=Math.random();
+    /*
+     * @description : In if statement condition is used to compare random value lessthan half
+     *                to increase the count value of tail
+     */
     if(random<0.5)
     {
         tail++;
     }
+    /*
+     * @description : else statement is used to increase the count value of head greaterthan half
+     */
     else
     {
         head++;
     }
-}
-var perofhead=(head/n)*100;
-var peroftail=(tail/n)*100;
+}/*End of the for loop*/
+/*
+ * @description : declaring the variables and to print the percentage of head and tail. 
+ */
+var perofhead=(head/fliptimes)*100;
+var peroftail=(tail/fliptimes)*100;
 var perofheadvstail=(head/tail)*100;
 console.log("percentage of head is "+perofhead+"%");
 console.log("percentage of tail is "+peroftail+"%");
 console.log("percentage of headvstail is "+perofheadvstail+"%");
 },
 
-/*DISPLAY NAME WITH MESSAGE*/
+/*
+ * Purpose   : By ensuring username with minimum 3 characters,replacing USERNAME with userinput
+ *             and print the string.
+ */
 
-displayname : function(name)
-{
-if(Object.keys(name).length >=3){
-    console.log('hii ' + name +' how r u ');
+/*
+ *  @descriptipn: Declaring the function and passing the userinput as argument.
+ *  @function: diplayname takes the userinput and print it with some sentence.
+ */
+ displayname : function(userinput)
+ {
+/*
+ *@decription: if condition is used to check the length of the input is greater than 3
+ */
+ if(userinput.length >=3){
+    console.log('hii ' + userinput +' how r u ');
  }
+/*
+ * @descrption: else statement is printed whether the input is lesser
+ */
  else
  {
      console.log("invalid username");
  }
-},
+},/* End of the funtion */
 
-/*LEAP YEAR*/
 
+/*
+ * @purpose : Taking input as a fourdigit number check whether the given number is a leap year
+ *            or not. 
+ */
+
+/*
+ * @description : Declaring the function and passing a four digit number from userinput
+ * @function:  Function compares the length of given number and prints the number 
+ *             is a leap year or not 
+ */
 leapyear : function(year)
 {
-    
-    if(Object.keys(year).length<4)
-    {
-        console.log("not a valid year");
+    /*
+     * @description : if statement checks the given number ,if the number is not equals to
+     *                fourdigit it prints invalid input and stops the program. 
+     */
+    if(year.length!=4)
+    { 
+         console.log("not a valid year");
     }
+    /*
+     * @description : else statement is printed if length of number is equals to four and it 
+     *                compares that if the year is completely divisible by 4 and not divisible 
+     *                by 100 or the year is divisible by 400. 
+     */
     else
     {
+        /* 
+         * @description : inner if condition compares that the year is completely divisible by 4 
+         *                and not divisible by 100 or the year is divisible by 400. 
+         */
         if(year%4==0 && year%100!==0 || year%400==0)
         {
             console.log(year+" is a leap year");
         }
         else
+        /*
+         * @description : excecuted when the given four digit number is not a leap year
+         */
         {
           console.log(year+" is  not a leap year");
         }
@@ -63,34 +131,63 @@ leapyear : function(year)
 
     },
 
-    /* DISPLAY LEAP YEAR WITH POWER VALUES*/
+/* 
+ * @purpose : By taking power values as input and display the given power value 
+ *            is a leapyear or not , the given power value doesnt exceed 31
+ */ 
 
+ /*
+  * @description : Declaring a function and giving power value N as argument  
+  * @function : power function takes the value N,checks the given number is less than 31 
+  *             and prints the given value is a leap year or not
+  */
 power : function(N)
 {
-    var res=1;
+    /*
+     * @description : Declaring the variable with power value as one
+     */
+    var  pow=1;
+    /*
+     * @description : In if statements conditions are taken that it doesnt exceed 0 and 31 
+     */ 
     if(N>0)
     {
         if(N<31)
         {
+            /* 
+             * @description : Initializing a variable i from one to check the condition 
+             * and in order to run the loop upto N times
+             */ 
             for(i=1;i<=N;i++)
             {
-                res=res*2;
+                /*
+                 * @description : multiplying each and every value of pow to 2, assigning 
+                 *                the value to power1 and printing the power values
+                 */
+                power1=pow*2;
                 console.log("the power value of 2 power "+i+" is "+res);
-            }
-                if(res%4==0 && res%100==0 || res%400==0)
+            }/* End of foe loop*/
+                 /*
+                  * @description : checking the last power1 value with leap year condition
+                  */
+                if(power1%4==0 && power1%100==0 || power1%400==0)
                   {
-                    console.log(res+" is a leap year");
+                    console.log(power1+" is a leap year");
                   }
                   else
                   {
-                   console.log(res+" is not a leap year");
+                   console.log(power1+" is not a leap year");
                   }
         }
     }
 
-},
+},/* End of power function */
 
-/* HARMONIC NUMBER*/
+
+
+/* 
+
+*/
 
 harmonic: function(num)
 {
@@ -242,7 +339,7 @@ addzero : function(read,n)
            {
                 for(var l=k+1;l<n;l++)
                 {
-                      if(Number(arr1[j])+Number(arr1[k])+Number(arr1[l]) == 0)
+                      if(Number(arr1[j])+Number(arr1[k])+Number(arr1[l]) === 0)
                       {
                          console.log("the distinct triplets are : ["+arr1[j]+","+arr1[k]+","+arr1[l]+"]");
                         count= count+1;
@@ -268,23 +365,6 @@ addzero : function(read,n)
 
 /*STOPWATCH*/
 
-/*stopwatch : function(starttime,stoptime)
-{
-    if(starttime==1)
-    {
-       var  start=utility.getcurrenttime();
-    }
-    else if(stoptime==0)
-    {
-     var   stop=utility.getcurrenttime();
-    }
-    else
-    {
-        console.log("invalid input");
-    }
-    var res=utility.elapsedtime(start,stop);
-    console.log("elapsed time="+res+"seconds");
-},*/
 getcurrenttime : function()
 {
     var date=new Date();
@@ -330,7 +410,7 @@ array2d : function(read,row,coloumn)
         read.question(`please enter array element${(arr1.length+1 )} : ` , function(value)
          {
              arr1.push(value);
-             input(n);
+             input(size);
          });
         }            
         
@@ -338,18 +418,35 @@ array2d : function(read,row,coloumn)
 input(size);
 },
 
+
 /*permutation*/
-permutation : function(word)
+
+permutation : function(str,first,last)
 {
-  var value=word;
-  string=word.split('');
-  /*console.log(string);*/
-  var string1=[];
-  for(var i=0;i<string.length;i++)
+
+  if(last===first)
   {
-      string1.push(string[i]);
+     console.log(str.join(''));
   }
-  console.log(string1);
+  else{
+      for(var i=first;i<=last;i++)
+      {
+        str=this.swap(str,first,i);
+       /*console.log("1." +str.join(''));*/
+        this.permutation(str, first+1, last);
+        str=this.swap(str,i,first);
+        /*console.log("3."+str.join('') );*/
+      }
+
+  }
+},
+swap : function(str,i,j)
+{
+    var temp;
+    temp=str[i];
+    str[i]=str[j];
+    str[j]=temp;
+    return str;
 }
 }
 
