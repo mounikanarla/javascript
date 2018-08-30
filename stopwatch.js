@@ -21,7 +21,9 @@ function watch()
     }
     else{
         console.log("invalid input");
+        watch();
     }
     });
 }
+
 watch();
