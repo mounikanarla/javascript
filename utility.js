@@ -1,6 +1,15 @@
 const _=require("lodash")
+var board = {
+    1: ' ',
+    2: ' ',
+    3: ' ',
+    4: ' ',
+    5: ' ',
+    6: ' ',
+    7: ' ',
+    8: ' ',
+    9: ' '};
 module.exports={
-
 /*
  * @purpose : By using random function flip the coin no of times from user input
  *            and print the percentage of head vs tails
@@ -13,216 +22,237 @@ module.exports={
  *            head and tail
  */
 
-coinflip: function(fliptimes)
-{
-/*
- * @description : Declaring the variables to store the random values of heads and tails.
- */
-var head=0,tail=0;
-/*
- * @description : initializing for loop to repeat according to no of times 
- *                to flip from user and comparing with one variable from one to 
- *                to no of times given.
- */
-for(var i=1;i<=fliptimes;i++)
-{   
-    /*
-     * @description : Declaring a random function to generate a random values from 0 to 1 and storing 
-     *                in a variable random
-     */
-    var random=Math.random();
-    /*
-     * @description : In if statement condition is used to compare random value lessthan half
-     *                to increase the count value of tail
-     */
-    if(random<0.5)
-    {
-        tail++;
-    }
-    /*
-     * @description : else statement is used to increase the count value of head greaterthan half
-     */
-    else
-    {
-        head++;
-    }
-}/*End of the for loop*/
-/*
- * @description : declaring the variables and to print the percentage of head and tail. 
- */
-var perofhead=(head/fliptimes)*100;
-var peroftail=(tail/fliptimes)*100;
-var perofheadvstail=(head/tail)*100;
-console.log("percentage of head is "+perofhead+"%");
-console.log("percentage of tail is "+peroftail+"%");
-console.log("percentage of headvstail is "+perofheadvstail+"%");
-},
-
-/*
- * Purpose   : By ensuring username with minimum 3 characters,replacing USERNAME with userinput
- *             and print the string.
- */
-
-/*
- *  @descriptipn: Declaring the function and passing the userinput as argument.
- *  @function: diplayname takes the userinput and print it with some sentence.
- */
- displayname : function(userinput)
+ coinflip: function(fliptimes)
  {
-/*
- *@decription: if condition is used to check the length of the input is greater than 3
- */
- if(userinput.length >=3){
-    console.log('hii ' + userinput +' how r u ');
- }
-/*
- * @descrption: else statement is printed whether the input is lesser
- */
- else
- {
-     console.log("invalid username");
- }
-},/* End of the funtion */
-
-
-/*
- * @purpose : Taking input as a fourdigit number check whether the given number is a leap year
- *            or not. 
- */
-
-/*
- * @description : Declaring the function and passing a four digit number from userinput
- * @function:  Function compares the length of given number and prints the number 
- *             is a leap year or not 
- */
-leapyear : function(year)
-{
     /*
-     * @description : if statement checks the given number ,if the number is not equals to
-     *                fourdigit it prints invalid input and stops the program. 
+     * @description : Declaring the variables to store the random values of heads and tails.
      */
-    if(year.length!=4)
-    { 
+    var head=0,tail=0;
+    /*
+     * @description : initializing for loop to repeat according to no of times 
+     *                to flip from user and comparing with one variable from one to 
+     *                to no of times given.
+     */
+      for(var i=1;i<=fliptimes;i++)
+     {   
+          /*
+           * @description : Declaring a random function to generate a random values from 0 to 1 and storing 
+           *                in a variable random
+           */
+           var random=Math.random();
+          /*
+           * @description : In if statement condition is used to compare random value lessthan half
+           *                to increase the count value of tail
+           */
+          if(random<0.5)
+           {
+             tail++;
+           }
+           /*
+            * @description : else statement is used to increase the count value of head greaterthan half
+            */
+          else
+           {
+             head++;
+           }
+        }       
+
+     /*
+      * @description : declaring the variables and to print the percentage of head and tail. 
+      */
+     var perofhead=(head/fliptimes)*100;
+     var peroftail=(tail/fliptimes)*100;
+     var perofheadvstail=(head/tail)*100;
+     console.log("percentage of head is "+perofhead+"%");
+     console.log("percentage of tail is "+peroftail+"%");
+     console.log("percentage of headvstail is "+perofheadvstail+"%");
+    },
+
+   
+ /*
+  * Purpose   : By ensuring username with minimum 3 characters,replacing USERNAME with userinput
+  *             and print the string.
+  */
+
+ /*
+  *  @descriptipn: Declaring the function and passing the userinput as argument.
+  *  @function: diplayname takes the userinput and print it with some sentence.
+  */
+   displayname : function(userinput)
+   {
+      /*
+       *@decription: if condition is used to check the length of the input is greater than 3
+       */
+       if(userinput.length >=3)
+       {
+         console.log('hii ' + userinput +' how r u ');
+       }
+      /*
+       * @descrption: else statement is printed whether the input is lesser
+       */
+       else
+       {
+         console.log("invalid username");
+       }
+   },     /* End of the funtion */
+
+
+  /*
+   * @purpose : Taking input as a fourdigit number check whether the given number is a leap year
+   *            or not. 
+   */
+
+  /*
+   * @description : Declaring the function and passing a four digit number from userinput
+   * @function:  Function compares the length of given number and prints the number 
+   *             is a leap year or not 
+   */
+   leapyear : function(year)
+   {
+     /*
+      * @description : if statement checks the given number ,if the number is not equals to
+      *                fourdigit it prints invalid input and stops the program. 
+      */
+     if(year.length!=4)
+     { 
          console.log("not a valid year");
-    }
-    /*
-     * @description : else statement is printed if length of number is equals to four and it 
-     *                compares that if the year is completely divisible by 4 and not divisible 
-     *                by 100 or the year is divisible by 400. 
-     */
-    else
-    {
-        /* 
-         * @description : inner if condition compares that the year is completely divisible by 4 
-         *                and not divisible by 100 or the year is divisible by 400. 
-         */
-        if(year%4==0 && year%100!==0 || year%400==0)
-        {
-            console.log(year+" is a leap year");
+     }
+     /*
+      * @description : else statement is printed if length of number is equals to four and it 
+      *                compares that if the year is completely divisible by 4 and not divisible 
+      *                by 100 or the year is divisible by 400. 
+      */
+     else
+       {
+         /* 
+          * @description : inner if condition compares that the year is completely divisible by 4 
+          *                and not divisible by 100 or the year is divisible by 400. 
+          */
+          if(year%4==0 && year%100!==0 || year%400==0)
+          {
+             console.log(year+" is a leap year");
+          }
+          else
+          /*
+           * @description : excecuted when the given four digit number is not a leap year
+           */
+          {
+             console.log(year+" is  not a leap year");
+          }
         }
-        else
-        /*
-         * @description : excecuted when the given four digit number is not a leap year
-         */
-        {
-          console.log(year+" is  not a leap year");
-        }
-      }
 
     },
 
-/* 
- * @purpose : By taking power values as input and display the given power value 
- *            is a leapyear or not , the given power value doesnt exceed 31
- */ 
+   /* 
+    * @purpose : By taking power values as input and display the given power value 
+    *            is a leapyear or not , the given power value doesnt exceed 31
+    */ 
 
- /*
-  * @description : Declaring a function and giving power value N as argument  
-  * @function : power function takes the value N,checks the given number is less than 31 
-  *             and prints the given value is a leap year or not
-  */
-power : function(N)
-{
-    /*
-     * @description : Declaring the variable with power value as one
-     */
-    var  pow=1;
-    /*
-     * @description : In if statements conditions are taken that it doesnt exceed 0 and 31 
-     */ 
-    if(N>0)
-    {
-        if(N<31)
-        {
-            /* 
-             * @description : Initializing a variable i from one to check the condition 
-             * and in order to run the loop upto N times
-             */ 
-            for(i=1;i<=N;i++)
-            {
-                /*
-                 * @description : multiplying each and every value of pow to 2, assigning 
-                 *                the value to power1 and printing the power values
-                 */
-                power1=pow*2;
-                console.log("the power value of 2 power "+i+" is "+res);
-            }/* End of foe loop*/
-                 /*
-                  * @description : checking the last power1 value with leap year condition
-                  */
-                if(power1%4==0 && power1%100==0 || power1%400==0)
-                  {
-                    console.log(power1+" is a leap year");
-                  }
-                  else
-                  {
-                   console.log(power1+" is not a leap year");
-                  }
+   /*
+    * @description : Declaring a function and giving power value N as argument  
+    * @function : power function takes the value N,checks the given number is less than 31 
+    *             and prints the given value is a leap year or not
+    */
+   power : function(N)
+   {
+      /*
+       * @description : Declaring the variable with power value as one
+       * var (integer) with power is 1
+       */
+      var  pow=1;
+      /*
+       * @description : In if statements conditions are taken that it doesnt exceed 0 and 31 
+       */ 
+      if(N>0)
+      {
+         if(N<31)
+          {
+             /* 
+              * @description : Initializing a variable i from one to check the condition 
+              * and in order to run the loop upto N times
+              */ 
+              for(i=1;i<=N;i++)
+               {
+                  /*
+                   * @description : multiplying each and every value of pow to 2, assigning 
+                   *                the value to power1 and printing the power values
+                   */
+                   pow=pow*2;
+                   console.log("the power value of 2 power "+i+" is "+pow);
+                }/* End of foe loop*/
+                   /*
+                    * @description : checking the last power1 value with leap year condition
+                    */
+                   if(pow%4==0 && pow%100==0 || pow%400==0)
+                    {
+                      console.log(pow+" is a leap year");
+                    }
+                   else
+                    {
+                      console.log(pow+" is not a leap year");
+                    }
+           }
         }
-    }
-
-},/* End of power function */
+    },/* End of power function */
 
 
 
-/* 
+   /* 
+    * @purpose : To genarate harmonic numbers according to the userinput
+    */
 
-*/
-
-harmonic: function(num)
-{
-    var sum=0;
-    var r;
-    if(num>0)
-    {
-        for(var i=1;i<=num;i++)
-        {
-           r=1/i;
-           sum=sum+r;
-        }
+   /*
+    * @description : To generate the sum of harmonic numbers by taking input from user
+    * @function : Harmonic function takes user input and sum it no of times that user given
+    */
+    harmonic: function(num)
+    {  
+       /*
+        * @ description : variables are initilized to add the repeated  value and adding it to sum
+        */
+       var sum=0;
+       /*
+        * @description: If statements will takes all positive values which is greater than zero 
+        */
+       if(num>0)
+       {
+           /*
+            * @description : for loop is initalized to repeat loop from starting to N value of 
+            *                user input
+            */
+          for(var i=1;i<=num;i++)
+           {
+               /*
+                * @description : every  i value will be divided and sum is added
+                */
+                 sum=sum+1/i;
+           }
            console.log("The harmonic value is "+sum);
         
-    }
-
-
-},
+        }
+    },
 
 /*PRIMEFACTORIZARION*/
 
 factprime : function(value)
-{
-  for(var f=2;f*f<value;f++)
-  {
-      while(value%f==0)
-      {
-          value=value/f;
-          console.log("the primefactor values are"+f );
-      }
-      if (value>1)
-      {
-          console.log(value);
-      }
-  }
+{ 
+    var flag=true;
+    for(var i=2;i<=value;i++)
+    {
+        if(value%i==0)
+        {
+           for(var j=2;j*j<=i;j++)
+           {
+              if(i%j==0){
+                flag=false;
+               }
+            }
+           if(flag==true){
+             value /=i;
+             console.log(i);
+            }
+        }
+    }
 },
 
 /*GAMBLER*/
@@ -447,9 +477,58 @@ swap : function(str,i,j)
     str[i]=str[j];
     str[j]=temp;
     return str;
-}
-}
+},
 
+
+markboard : function(position,mark) {
+    board[position] = mark.toUpperCase();
+},
+
+printscreen : function() {
+    console.log('\n' +
+        ' ' + board[1] + ' | ' + board[2] + ' | ' + board[3] + '\n' +
+        ' ---------\n' +
+        ' ' + board[4] + ' | ' + board[5] + ' | ' + board[6] + '\n' +
+        ' ---------\n' +
+        ' ' + board[7] + ' | ' + board[8] + ' | ' + board[9] + '\n');
+
+},
+
+isInt: function(value) {
+    var x;
+    if (isNaN(value)) {
+        return false;
+    }
+    x = parseFloat(value);
+    return (x | 0) === x;
+},
+
+ move : function(position) {
+    if (this.isInt(position) === true && board[position] === ' ') {
+        return true;
+    }
+    return false;
+},
+
+
+wincase : function(player) {
+
+var wincase = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
+              [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
+    for (var i = 0; i < wincase.length; i++) {
+        var markCount = 0;
+        for (var j = 0; j <wincase[i].length; j++) {
+            if (board[wincase[i][j]] === player) {
+                markCount++;
+            }
+            if (markCount === 3) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+}
 
 
 
